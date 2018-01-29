@@ -5,8 +5,10 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
+
 //使用mock数据
-import './mock/mock'
+import Mock from './mock'
+Mock.bootstrap();
 
 Vue.config.productionTip = false
 

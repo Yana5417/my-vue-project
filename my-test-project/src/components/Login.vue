@@ -22,20 +22,21 @@
 </template>
 
 <script>
+	import { requestLogin } from '../api/api'
 	export default {
 		data() {
 			var checkName = (rule, value, callback) => {
 				let that = this;
 				if(value === '') {
 					return callback(new Error('用户名不能为空'));
-				}else{
+				} else {
 					callback();
 				}
 			};
 			var validatePass = (rule, value, callback) => {
 				if(value === '') {
 					callback(new Error('请输入密码'));
-				}else{
+				} else {
 					callback();
 				}
 			};
@@ -60,7 +61,29 @@
 			Login(formName) {
 				this.$refs[formName].validate((valid) => {
 					if(valid) {
-						alert('submit!');
+						let userInfo = {
+							username:this.userInfo.username,
+							password:this.userInfo.pass
+						};
+						requestLogin(userInfo).then(data => {
+							let {
+								msg,
+								code,
+								user
+							} = data;
+							if(code !== 200) {
+								this.$message({
+									message: msg,
+									type: 'error'
+								});
+							} else {
+								console.log(user);
+								sessionStorage.setItem('user', JSON.stringify(user));
+//								this.$router.push({
+//									path: '/dashboard'
+//								});
+							}
+						});
 					} else {
 						console.log('error submit!!');
 						return false;
@@ -76,7 +99,7 @@
 
 <style lang="less" scoped>
 	.loginBox {
-		width: 20%;
+		width: 400px;
 		height: 240px;
 		border: 1px solid #ccc;
 		margin: 9% auto 0px auto;
