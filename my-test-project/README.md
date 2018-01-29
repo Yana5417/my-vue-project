@@ -1,6 +1,6 @@
 # my-test-project
 
-> A Vue.js project
+>vue+vue-router+axios+axios-mock-adapter+less+elementui
 
 ## Build Setup
 
