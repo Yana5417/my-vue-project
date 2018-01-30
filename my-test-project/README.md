@@ -4,8 +4,6 @@
 
 ##环境搭建
 
-install vue-cli webpack
-
 npm install -g vue-cli
 
 npm install -g webpack
