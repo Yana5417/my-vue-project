@@ -3,12 +3,12 @@
 >vue+vue-router+axios+axios-mock-adapter+less+elementui+webpack
 
 ##环境搭建
->#install vue-cli webpack
-npm install -g vue-cli
-npm install -g webpack
+>install vue-cli webpack
+>npm install -g vue-cli
+>npm install -g webpack
 
->#init project
-vue init webpack my-test-project
+>init project
+>vue init webpack my-test-project
 
 ##开始项目
 
